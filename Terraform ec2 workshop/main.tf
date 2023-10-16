@@ -77,7 +77,7 @@ resource "aws_security_group" "DevOpsBootcamp-sg" {
     }
 
     ingress {
-        from_port = 8080
+        from_port = 8080 
         to_port = 8080
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
@@ -130,7 +130,7 @@ resource "aws_instance" "DevOpsBootcamp-server"{
     key_name = aws_key_pair.ssh-key.key_name 
 
     # run nginx docker container in the ec2-user
-    # user_data = file("entry-script.sh")
+    user_data = file("entry-script.sh")
     tags = {
         Name: each.value
     }
